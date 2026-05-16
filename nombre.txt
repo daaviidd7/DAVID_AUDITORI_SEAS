@@ -1,0 +1,77 @@
+# Auditoría SEAS – David
+
+Este repositorio contiene la práctica completa de auditoría solicitada por SEAS.  
+Se han realizado todas las tareas indicadas: conectividad, escaneo, FTP, SSH, claves, fuerza bruta y documentación.
+
+---
+
+## 1. Conectividad entre máquinas
+Comprobé la conexión entre la atacante (192.168.10.20) y la víctima (192.168.10.10):
+
+Comando:
+ping 192.168.10.10 -c 4
+
+Esto verifica que ambas máquinas están en la misma red interna.
+
+---
+
+## 2. Escaneo Nmap
+Escaneé todos los puertos y servicios de la máquina víctima:
+
+Comando:
+nmap -sV -p- 192.168.10.10
+
+Esto permite identificar servicios activos y puertos abiertos.
+
+---
+
+## 3. Servidor FTP anónimo en puerto 4321
+En la máquina víctima instalé y configuré vsftpd para permitir acceso anónimo:
+
+- Instalación de vsftpd
+- Modificación de /etc/vsftpd.conf
+- Activación del puerto 4321
+- Creación del archivo david_seas.txt en /srv/ftp/
+
+Desde la atacante accedí al FTP:
+
+ftp 192.168.10.10 4321
+
+---
+
+## 4. SSH con contraseña (puerto 2222)
+Accedí por SSH usando usuario y contraseña:
+
+ssh -p 2222 usuario@192.168.10.10
+
+---
+
+## 5. SSH con claves públicas
+Generé un par de claves y configuré acceso sin contraseña:
+
+ssh-keygen -t rsa  
+ssh-copy-id -p 2222 usuario@192.168.10.10  
+ssh -p 2222 usuario@192.168.10.10
+
+---
+
+## 6. Ataque de fuerza bruta con Hydra
+Desde la atacante ejecuté un ataque de fuerza bruta contra SSH:
+
+hydra -l usuario -P passwords.txt -s 2222 ssh://192.168.10.10
+
+Esto permitió obtener credenciales válidas.
+
+---
+
+## 7. Archivos incluidos en el repositorio
+- ping_resultado.txt  
+- nmap_resultado.txt  
+- ftp_resultado.txt  
+- ssh_contraseña.txt  
+- ssh_claves.txt  
+- fuerza_bruta.txt  
+
+Cada archivo contiene el comando ejecutado y su salida correspondiente.
+
+---

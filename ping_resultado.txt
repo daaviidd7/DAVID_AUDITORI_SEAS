@@ -1,5 +1,13 @@
+
+usuario@usuario:~$ ping 192.168.10.10
 PING 192.168.10.10 (192.168.10.10) 56(84) bytes of data.
+64 bytes from 192.168.10.10: icmp_seq=1 ttl=64 time=0.305 ms
+64 bytes from 192.168.10.10: icmp_seq=2 ttl=64 time=0.059 ms
+64 bytes from 192.168.10.10: icmp_seq=3 ttl=64 time=0.074 ms
+64 bytes from 192.168.10.10: icmp_seq=4 ttl=64 time=0.105 ms
+64 bytes from 192.168.10.10: icmp_seq=5 ttl=64 time=0.077 ms
+64 bytes from 192.168.10.10: icmp_seq=6 ttl=64 time=0.073 msC
 
 --- 192.168.10.10 ping statistics ---
-4 packets transmitted, 0 received, 100% packet loss, time 3065ms
-
+6 packets transmitted, 6 received, 0% packet loss, time 5xxxms
+rtt min/avg/max/mdev = 0.059/0.115/0.305/0.090 ms
